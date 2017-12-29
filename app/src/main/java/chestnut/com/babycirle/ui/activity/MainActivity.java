@@ -1,4 +1,4 @@
-package babycircle.chestnut.com.babycirle;
+package chestnut.com.babycirle.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import chestnut.com.babycirle.R;
+
+/**
+ * @author songzhengpeng
+ */
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
