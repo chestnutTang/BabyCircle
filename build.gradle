@@ -8,7 +8,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-        
+        compile 'com.airbnb.android:lottie:2.2.5'//加载json类型的gif图
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
