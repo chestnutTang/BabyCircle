@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 ext {
-    VERSION = '26.1.0'
+    VERSION = '27.0.2'
 }
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     defaultConfig {
         applicationId "chestnut.com.babycirle"
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -37,4 +37,5 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.2'
     implementation project(':PushSDK')
 
+    compile 'com.airbnb.android:lottie:2.5.0-beta1'//加载json类型的gif图
 }
