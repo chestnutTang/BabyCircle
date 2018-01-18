@@ -3,8 +3,11 @@ package chestnut.com.babycirle.app;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
+import com.umeng.commonsdk.UMConfigure;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
+
+import chestnut.com.babycirle.constant.PreferenceManageTools;
 
 /**
  * BabyCircle
@@ -18,6 +21,12 @@ public class BabyCircleApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        PreferenceManageTools.init(this);
+        initUmengPush();
+        initUmengAnalytics();
+    }
+
+    private void initUmengPush() {
         PushAgent mPushAgent = PushAgent.getInstance(this);
         //上线改为false
         mPushAgent.setDebugMode(true);
@@ -36,5 +45,10 @@ public class BabyCircleApplication extends MultiDexApplication {
 
             }
         });
+    }
+
+    private void initUmengAnalytics() {
+        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, "05f4b4e4c204272ea059e96a32f03cd5");
+        UMConfigure.setLogEnabled(true);
     }
 }

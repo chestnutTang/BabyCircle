@@ -38,4 +38,6 @@ dependencies {
     implementation project(':PushSDK')
 
     compile 'com.airbnb.android:lottie:2.5.0-beta1'//加载json类型的gif图
+    compile 'com.umeng.sdk:common:latest.integration'
+    compile 'com.umeng.sdk:analytics:latest.integration'
 }

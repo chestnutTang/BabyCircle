@@ -54,3 +54,7 @@
    public static *** i(...);
    public static *** w(...);
  }
+
+ #友盟
+ -keep class com.umeng.commonsdk.** {*;}
+

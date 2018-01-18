@@ -15,9 +15,11 @@ import android.widget.Toast;
 import com.airbnb.lottie.Cancellable;
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieComposition;
+import com.umeng.analytics.MobclickAgent;
 
 import butterknife.BindView;
 import chestnut.com.babycirle.R;
+import chestnut.com.babycirle.constant.UtilTools;
 
 /**
  * @author songzhengpeng
@@ -41,12 +43,15 @@ public class MainActivity extends BaseActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     message.setText(R.string.title_home);
+                    UtilTools.uploadToUmengNew(MainActivity.this, "u_name", "完美世界");
                     return true;
                 case R.id.navigation_dashboard:
                     message.setText(R.string.title_dashboard);
+                    UtilTools.uploadToUmeng(MainActivity.this, "u_message", "锦上添花");
                     return true;
                 case R.id.navigation_notifications:
                     message.setText(R.string.title_notifications);
+                    UtilTools.uploadToUmeng(MainActivity.this, "u_head", "雪中送炭");
                     return true;
                 default:
                     break;

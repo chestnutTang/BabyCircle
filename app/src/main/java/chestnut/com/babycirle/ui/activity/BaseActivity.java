@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
 
 import butterknife.ButterKnife;
@@ -27,6 +28,18 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getLayoutId());
         ButterKnife.bind(this);
         PushAgent.getInstance(getApplicationContext()).onAppStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 
     /**
@@ -74,4 +87,5 @@ public abstract class BaseActivity extends AppCompatActivity {
                 })
                 .show();
     }
+
 }
