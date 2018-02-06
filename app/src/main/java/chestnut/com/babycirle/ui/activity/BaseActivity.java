@@ -8,6 +8,9 @@ import android.graphics.PorterDuffColorFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
@@ -127,5 +130,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    protected void bindFragments(Fragment fragment, int viewID) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(viewID, fragment);
+        fragmentTransaction.commit();
+
+    }
 
 }

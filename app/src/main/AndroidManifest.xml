@@ -16,16 +16,15 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".app.BabyCircleApplication"
         android:allowBackup="true"
-        android:name="chestnut.com.babycirle.app.BabyCircleApplication"
         android:icon="@mipmap/icon_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.MainActivity">
-        </activity>
+        <activity android:name=".ui.activity.MainActivity"></activity>
         <activity
-            android:name="chestnut.com.babycirle.ui.activity.WelcomeActivity"
+            android:name=".ui.activity.WelcomeActivity"
             android:theme="@style/bestStart">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,16 +35,13 @@
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5a47072cf43e4850db0006f1">
-        </meta-data>
+            android:value="5a47072cf43e4850db0006f1"></meta-data>
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
-            android:value="05f4b4e4c204272ea059e96a32f03cd5">
-        </meta-data>
+            android:value="05f4b4e4c204272ea059e96a32f03cd5"></meta-data>
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="Channel ID" >
-        </meta-data>
+            android:value="Channel ID"></meta-data>
     </application>
 
 </manifest>
