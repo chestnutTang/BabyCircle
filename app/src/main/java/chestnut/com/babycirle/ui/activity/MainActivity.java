@@ -9,6 +9,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,7 @@ import chestnut.com.babycirle.constant.UtilTools;
 public class MainActivity extends BaseActivity {
 
     @BindView(R.id.message)
-    TextView message;
+    EditText message;
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
     @BindView(R.id.container)
@@ -64,28 +65,11 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        animationView.setImageAssetsFolder("peter/");
-        animationView.setAnimation("data.json");
-        animationView.loop(true);
-        // 任何符合颜色过滤界面的类
-        final PorterDuffColorFilter colorFilter = new PorterDuffColorFilter(Color.RED,
-                PorterDuff.Mode.LIGHTEN);
-//
-//// 在整个视图中添加一个颜色过滤器
-//        animationView.addColorFilter(colorFilter);
-        animationView.setColorFilter(colorFilter);
-        animationView.playAnimation();
-//        Cancellable compositionCancellable = LottieComposition.Factory.fromJson(getResources(),
-// jsonObject, (composition) -> {
-//            animationView.setComposition(composition);
-//            animationView.playAnimation();
-//        });
+        initAnimationFolderPeter(animationView);
         message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                animationView.cancelAnimation();
-                animationView.clearAnimation();
-//                animationView.setVisibility(View.GONE);
+                releaseAnimation(animationView, animationView);
             }
         });
     }

@@ -2,6 +2,9 @@ package chestnut.com.babycirle.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -9,6 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.airbnb.lottie.Cancellable;
+import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieComposition;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
 
@@ -87,5 +93,39 @@ public abstract class BaseActivity extends AppCompatActivity {
                 })
                 .show();
     }
+
+    /**
+     * @param animationView 初始化加载动画
+     */
+    protected void initAnimationFolderPeter(LottieAnimationView animationView) {
+        animationView.setImageAssetsFolder("peter/");
+        animationView.setAnimation("data.json");
+        animationView.loop(true);
+        animationView.playAnimation();
+        // 任何符合颜色过滤界面的类
+//        final PorterDuffColorFilter colorFilter = new PorterDuffColorFilter(Color.RED,
+//                PorterDuff.Mode.LIGHTEN);
+//
+//// 在整个视图中添加一个颜色过滤器
+//        animationView.addColorFilter(colorFilter);
+//        Cancellable compositionCancellable = LottieComposition.Factory.fromJson(getResources(),
+//                jsonObject, (composition) -> {
+//                    animationView.setComposition(composition);
+//                    animationView.playAnimation();
+//                });
+    }
+
+    /**
+     * @param animationView
+     * @param view          关闭加载动画
+     */
+    protected void releaseAnimation(LottieAnimationView animationView, View view) {
+        animationView.cancelAnimation();
+        animationView.clearAnimation();
+        if (view != null) {
+            view.setVisibility(View.GONE);
+        }
+    }
+
 
 }

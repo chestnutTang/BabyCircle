@@ -14,6 +14,11 @@ import java.util.HashMap;
 
 public class UtilTools {
 
+    /**
+     * @param context
+     * @param eventName
+     * @param eventValue 友盟统计事件
+     */
     public static void uploadToUmeng(Context context, String eventName, String eventValue) {
         HashMap<String, String> uKey = new HashMap<>();
         uKey.put("uKey", eventValue);
