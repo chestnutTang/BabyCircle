@@ -17,13 +17,12 @@ import chestnut.com.babycirle.R;
 
 
 public class MainFragment extends BaseFragment {
-    @BindView(R.id.plus_one_button)
-    PlusOneButton plusOneButton;
+//    @BindView(R.id.plus_one_button)
+//    PlusOneButton plusOneButton;
     @BindView(R.id.txt_name)
     TextView txtName;
     @BindView(R.id.animation_view)
     LottieAnimationView animationView;
-    Unbinder unbinder;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,7 +38,6 @@ public class MainFragment extends BaseFragment {
             animationView = container.findViewById(R.id.animation_view);
         }
         initAnimationFolderPeter(animationView);
-        unbinder = ButterKnife.bind(this, super.onCreateView(inflater, container, savedInstanceState));
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
@@ -51,7 +49,6 @@ public class MainFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
     }
 
     public void setTitle(String title) {

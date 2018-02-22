@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_layout" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/df"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:itemCount="8"
+        tools:layoutManager="GridLayoutManager"
+        tools:listitem="@layout/list_content"
+        tools:orientation="horizontal"
+        tools:spanCount="2" />
+
+</LinearLayout>

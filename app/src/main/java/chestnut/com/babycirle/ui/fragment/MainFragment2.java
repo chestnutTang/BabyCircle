@@ -14,8 +14,8 @@ import chestnut.com.babycirle.R;
 
 
 public class MainFragment2 extends BaseFragment {
-    @BindView(R.id.plus_one_button)
-    PlusOneButton plusOneButton;
+//    @BindView(R.id.plus_one_button)
+//    PlusOneButton plusOneButton;
     @BindView(R.id.txt_name)
     TextView txtName;
 
