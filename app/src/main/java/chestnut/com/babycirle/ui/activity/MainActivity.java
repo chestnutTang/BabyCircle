@@ -77,7 +77,6 @@ public class MainActivity extends BaseActivity {
         initAnimationFolderPeter(animationView);
         //绑定fragment
         bindFragments();
-//        bindFragments(mainFragment, R.id.container);
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         message.setOnClickListener(new View.OnClickListener() {
@@ -88,14 +87,13 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    /**
+     * 绑定fragment
+     */
     private void bindFragments() {
-
-
         mainFragment = new MainFragment();
         mainFragment2 = new MainFragment2();
         mainFragment3 = new MainFragment3();
-
-
     }
 
     @Override
@@ -103,8 +101,10 @@ public class MainActivity extends BaseActivity {
         return R.layout.activity_main;
     }
 
+    /**
+     * @param fragment 切换fragment
+     */
     private void switchFragments(Fragment fragment) {
-//        mainFragment.setTitle(title);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);

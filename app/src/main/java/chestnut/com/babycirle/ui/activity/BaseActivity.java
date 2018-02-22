@@ -130,13 +130,4 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    protected void bindFragments(Fragment fragment, int viewID) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(viewID, fragment);
-        fragmentTransaction.commit();
-
-    }
-
 }

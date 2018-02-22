@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.plus.PlusOneButton;
 
 import butterknife.BindView;
@@ -20,6 +21,8 @@ public class MainFragment extends BaseFragment {
     PlusOneButton plusOneButton;
     @BindView(R.id.txt_name)
     TextView txtName;
+    @BindView(R.id.animation_view)
+    LottieAnimationView animationView;
     Unbinder unbinder;
 
     @Override
@@ -31,8 +34,12 @@ public class MainFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
             Bundle savedInstanceState) {
-        unbinder = ButterKnife.bind(this, super.onCreateView(inflater, container,
-                savedInstanceState));
+        //初始化加载动画
+        if (animationView == null){
+            animationView = container.findViewById(R.id.animation_view);
+        }
+        initAnimationFolderPeter(animationView);
+        unbinder = ButterKnife.bind(this, super.onCreateView(inflater, container, savedInstanceState));
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 

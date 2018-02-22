@@ -10,8 +10,6 @@ import android.widget.TextView;
 import com.google.android.gms.plus.PlusOneButton;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import chestnut.com.babycirle.R;
 
 
@@ -20,7 +18,6 @@ public class MainFragment2 extends BaseFragment {
     PlusOneButton plusOneButton;
     @BindView(R.id.txt_name)
     TextView txtName;
-    Unbinder unbinder;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,8 +28,6 @@ public class MainFragment2 extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
             Bundle savedInstanceState) {
-        unbinder = ButterKnife.bind(this, super.onCreateView(inflater, container,
-                savedInstanceState));
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
@@ -44,7 +39,6 @@ public class MainFragment2 extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
     }
 
     public void setTitle(String title) {
