@@ -9,6 +9,8 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -51,6 +53,7 @@ public class MainActivity extends BaseActivity {
                     message.setText(R.string.title_home);
                     UtilTools.uploadToUmengNew(MainActivity.this, "u_name", "完美世界");
                     switchFragments(mainFragment);
+                    getScreenSize();
                     return true;
                 case R.id.navigation_dashboard:
                     message.setText(R.string.title_dashboard);
@@ -69,6 +72,15 @@ public class MainActivity extends BaseActivity {
         }
     };
 
+    private void getScreenSize() {
+        DisplayMetrics DisplayMetrics = new DisplayMetrics();
+        this.getWindowManager().getDefaultDisplay().getMetrics(DisplayMetrics);
+        Log.e("song", "宽度：" + DisplayMetrics.widthPixels);
+        Log.e("song", "高度：" + DisplayMetrics.heightPixels);
+        toast(getApplicationContext(), "宽度：" + DisplayMetrics.widthPixels);
+        toast(getApplicationContext(), "高度：" + DisplayMetrics.heightPixels);
+    }
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
