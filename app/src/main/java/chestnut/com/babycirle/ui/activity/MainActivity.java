@@ -13,6 +13,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -80,7 +81,7 @@ public class MainActivity extends BaseActivity {
         toast(getApplicationContext(), "宽度：" + DisplayMetrics.widthPixels);
         toast(getApplicationContext(), "高度：" + DisplayMetrics.heightPixels);
     }
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,6 +122,40 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.commit();
+    }
+
+    /**
+     * 树形结构练习
+     *
+     * @param vp
+     * @param id
+     * @return 返回一个在vg下面的一个View，id为方法的第二个参数
+     */
+    public static View find(ViewGroup vp, int id) {
+        if (vp == null) {
+            return null;
+        } else {
+            int size = vp.getChildCount();
+            //循环遍历所有孩子
+            for (int i = 0; i < size; i++) {
+                View view = vp.getChildAt(i);
+                //如果当前孩子的id相同，那么返回
+                if (view.getId() == i) {
+                    return view;
+                }
+                //如果当前孩子id不同，但是是一个ViewGroup，那么我们递归往下找
+                else if (view instanceof ViewGroup) {
+                    //递归
+                    View view1 = find((ViewGroup) view, id);
+                    //如果找到了，就返回temp，如果没有找到，继续当前的for循环
+                    if (view1 != null) {
+                        return view1;
+                    }
+                }
+            }
+        }
+        //到最后还没用找到，代表该ViewGroup vg 并不包含一个有该id的孩子，返回空
+        return null;
     }
 
 }
